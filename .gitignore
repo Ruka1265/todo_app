@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Editor-specific
+.vscode/
+.idea/
+
+# Optional: backup files
+*.swp
+*.swo
+*.bak
