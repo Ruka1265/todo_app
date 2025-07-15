@@ -2,18 +2,22 @@ from fastapi import FastAPI, HTTPException, Path
 from database import database
 from models import Todo, TodoCreate
 import crud
+from dotenv import load_dotenv
+import os
 
 
 app = FastAPI()
 
+# CORSの設定
+
 from fastapi.middleware.cors import CORSMiddleware
 
-# CORSミドルウェアの設定
-# 本番環境では適切なオリジンを設定すること
-# ここでは開発中のため全てのオリジンを許可
+load_dotenv()
+FRONTEND_URL = os.getenv("FRONTEND_URL")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 本番ではセキュリティのために絞るべき
+    allow_origins=[FRONTEND_URL],  # 本番ではセキュリティのために絞るべき
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
