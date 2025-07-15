@@ -14,10 +14,14 @@ from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 FRONTEND_URL = os.getenv("FRONTEND_URL")
+origins = [
+    "http://localhost:3000",                # 開発環境（ローカル）
+    FRONTEND_URL          # 本番環境（Next.js）
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[FRONTEND_URL],  # 本番ではセキュリティのために絞るべき
+    allow_origins=origins,  # 本番ではセキュリティのために絞るべき
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
