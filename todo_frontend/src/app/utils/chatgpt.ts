@@ -1,26 +1,13 @@
 export const fetchTodosFromChatGPT = async (text: string) => {
-        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/generate-todos`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`,
             },
-            body: JSON.stringify({
-                model: 'gpt-3.5-turbo',
-                messages: [
-                    {
-                        role: 'system',
-                        content: 'あなたはユーザーがやるべきことをToDoリスト形式に分解するAIアシスタントです。ユーザーの文章から実行すべきToDoを、各行に分けて出力してください。ただし、出力には番号や-を付けず、単なる文章として出力してください。また、なるべく行数（todoの数)は少なくまとめてください。'
-                    },
-                    {
-                        role: 'user',
-                        content: text
-                    },
-                ],
-            }),
-        })
+            body: JSON.stringify({ prompt: text }),
+        });
         const data = await response.json();
-        return data.choices?.[0]?.message?.content || '';
+        return data.result || '';
     }
 
 export const postTodosFromResponse = async (response: string) => {

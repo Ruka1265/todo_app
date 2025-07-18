@@ -9,3 +9,6 @@ class Todo(BaseModel):
 
 class TodoCreate(BaseModel):
     title: str
+
+class PromptRequest(BaseModel):
+    prompt: str
