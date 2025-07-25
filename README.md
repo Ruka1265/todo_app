@@ -19,3 +19,11 @@ https://todo-app-pro-pearl.vercel.app/
 - Tailwind CSSを用いたスタイリング
 - フロントエンドとバックエンドがAPI連携で統合
 - ChatGPT APIを利用したTodo自動生成機能(モデルは4oを利用)
+
+## 📝 ライセンス
+
+MIT License
+
+## 👤 作成者
+
+**寺田 光** - [GitHub](https://github.com/Ruka1265)
