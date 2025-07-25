@@ -26,4 +26,4 @@ MIT License
 
 ## 👤 作成者
 
-**寺田 光** - [GitHub](https://github.com/Ruka1265)
+**Ruka1265** - [GitHub](https://github.com/Ruka1265)
